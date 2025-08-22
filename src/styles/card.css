@@ -27,17 +27,6 @@
 }
 
 /* CARD */
-@media (max-width: 576px) {
-    .card-container {
-        display: flex;
-        flex-direction: column-reverse;
-        background: #020024;
-        background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-        width: 750px;
-        margin-top: 12px;
-        margin-bottom: 12px;
-    }
-}
 .card-container{
     display: flex;
     width: 650px;
