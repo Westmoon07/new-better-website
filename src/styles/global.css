@@ -1,8 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 body {
   background: #020024;
   background: linear-gradient(
@@ -11,4 +6,9 @@ body {
     rgba(9, 9, 121, 1) 35%,
     rgba(0, 212, 255, 1) 100%
   );
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
