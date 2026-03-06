@@ -3,6 +3,7 @@
 const { title = 'Personal Card Astro', description } = Astro.props;
 
 import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import '../styles/global.css';
 ---
 <!-- Here you can change everything related to the head, favicon, icons, and fonts. -->
@@ -27,5 +28,6 @@ import '../styles/global.css';
     <main>
       <slot />
     </main>
+    <SpeedInsights />
   </body>
 </html>
