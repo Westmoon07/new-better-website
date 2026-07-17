@@ -1,0 +1,44 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+
+export function getStaticPaths() {
+  const videosDir = path.join(process.cwd(), "public", "videos");
+  const files = fs.readdirSync(videosDir).filter((f) =>
+    /\.(mp4|webm|mov)$/i.test(f)
+  );
+
+  return files.map((file) => {
+    const slug = file.replace(/\.[^.]+$/, ""); // filename without extension
+    return {
+      params: { slug },
+      props: { file },
+    };
+  });
+}
+
+const { file } = Astro.props;
+---
+<html lang="en">
+  <head>
+    <title>{file}</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      video {
+        width: 100%;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <video controls src={`/videos/${file}`}></video>
+    <p><a href={`/videos/${file}`}>Direct link (for VLC/ffmpeg)</a></p>
+    <p><a href="/video">← back to all videos</a></p>
+  </body>
+</html>
