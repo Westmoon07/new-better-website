@@ -1,0 +1,21 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+
+const videosDir = path.join(process.cwd(), "public", "videos");
+const files = fs.readdirSync(videosDir).filter((f) =>
+  /\.(mp4|webm|mov)$/i.test(f)
+);
+---
+<html lang="en">
+  <head><title>Videos</title></head>
+  <body>
+    <h1>Videos</h1>
+    <ul>
+      {files.map((f) => {
+        const slug = f.replace(/\.[^.]+$/, "");
+        return <li><a href={`/video/${slug}`}>{f}</a></li>;
+      })}
+    </ul>
+  </body>
+</html>
